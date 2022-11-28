@@ -14,8 +14,8 @@ bool isCompatible(int id1, int id2) {
     int pscore = pref_score[id1];
     int atrscore = attr_Score[id2];
 
-    // if the two are compaobilty, so if the scores are wihtin the threshold then we return a boolean
-    if(pscore + 50 >= atrscore || pcore - 50 >= atrscore) {
+    // if the two are compatibilty, so if the scores are wihtin the threshold then we return a boolean
+    if(pscore + 100 >= atrscore || pcore - 100 >= atrscore) {
         return true; 
     }
 }
