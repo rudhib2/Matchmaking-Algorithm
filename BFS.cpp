@@ -15,7 +15,7 @@ bool isCompatible(int id1, int id2) {
     int atrscore = attr_Score[id2];
 
     // if the two are compatibilty, so if the scores are wihtin the threshold then we return a boolean
-    if(pscore + 100 >= atrscore || pcore - 100 >= atrscore) {
+    if(pscore + 50 >= atrscore || pcore - 50 >= atrscore) {
         return true; 
     }
 }
@@ -81,6 +81,26 @@ BFS(int id1) { // // BFS through the graph
 // complete adding all the edges 
 // BFS through the graph
 // according to the graph BFS we need to populate our vector 
+
+bool PrelimCheck(int id1, int id2) {
+    // checking rel_type
+    if (pref[0][id1] != attr[8][id2]) {
+        return false;
+    }
+    //checking age
+    if (pref[2][id1] != attr[1][id2]) {
+        return false;
+    }
+    //checking gender
+    if (pref[1][id1] != attr[0][id2]) {
+        return false;
+    }
+    //checking race_pref
+    if (pref[3][id1] != attr[2][id2]) {
+        return false;
+    }
+    return true;
+}
 
 
  
