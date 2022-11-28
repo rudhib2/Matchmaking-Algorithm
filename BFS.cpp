@@ -82,6 +82,9 @@ BFS(int id1) { // // BFS through the graph
 // BFS through the graph
 // according to the graph BFS we need to populate our vector 
 
+//PrelimCheck is the function that checks for "absolute traits" (rel_type, age, gender, race_pref). 
+// If any of these don't match we straight away say that the two people are incompatible
+
 bool PrelimCheck(int id1, int id2) {
     // checking rel_type
     if (pref[id1][0] != attr[id2][8]) {
