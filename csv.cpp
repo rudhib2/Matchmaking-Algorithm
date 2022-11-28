@@ -1,7 +1,4 @@
-/**
- * @file schedule.cpp
- * Exam scheduling using graph coloring
- */
+
 
 #include <iostream>
 #include <cmath>
@@ -10,7 +7,6 @@
 #include <unordered_map>
 
 #include "csv.h"
-#include "utils.h"
 #include <algorithm>
 
 #include <fstream>
