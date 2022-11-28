@@ -84,19 +84,19 @@ BFS(int id1) { // // BFS through the graph
 
 bool PrelimCheck(int id1, int id2) {
     // checking rel_type
-    if (pref[0][id1] != attr[8][id2]) {
+    if (pref[id1][0] != attr[id2][8]) {
         return false;
     }
     //checking age
-    if (pref[2][id1] != attr[1][id2]) {
+    if (pref[id1][2] != attr[id2][1]) {
         return false;
     }
     //checking gender
-    if (pref[1][id1] != attr[0][id2]) {
+    if (pref[id1][1] != attr[id2][0]) {
         return false;
     }
     //checking race_pref
-    if (pref[3][id1] != attr[2][id2]) {
+    if (pref[id1][3] != attr[id2][2]) {
         return false;
     }
     return true;
