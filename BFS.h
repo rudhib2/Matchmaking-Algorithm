@@ -13,17 +13,6 @@ class BFS::Graph {
       // part 2 :
       //public map<int, vector<int>> compList (vector<vector<bool>>); 
       // gives a map which maps the id to the id of people that they are compatible with 
- 
 
-
-    private:
-     vector<int> id; // contains the id 
-
-     vector<vector<int>> pref; // contains the preference of each person correspoding to id 
-     vector<vector<int>> attr; // contains the attribute of each person correspoding to id 
-     vector<vector<bool>> compat;
-
-     vector<int> pref_score; // contains the preference score of each person correspoding to id 
-     vector<int> attr_score; // contains the attribute score of each person correspoding to id 
 
 }

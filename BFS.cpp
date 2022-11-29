@@ -14,6 +14,10 @@ bool isCompatible(int id1, int id2) {
     int pscore = pref_score[id1];
     int atrscore = attr_Score[id2];
 
+    if(PrelimCheck(id1, id2) == false) {
+        return false; 
+    }
+
     // if the two are compatibilty, so if the scores are wihtin the threshold then we return a boolean
     if(pscore + 50 >= atrscore || pcore - 50 >= atrscore) {
         return true; 
@@ -23,6 +27,12 @@ bool isCompatible(int id1, int id2) {
 std::vector<std::vector<bool>> populate(){ 
     // iterate through the pref_score vector and the attr_score vector
     Graph g(id.size()); 
+    vector<bool> visited;
+
+    // Mark all the vertices as not visited
+    for(int i = 0; i < visited.size(); i++){
+       visited[i][j] == false; 
+    }
 
     for (int i = 0; i < pref_score.size(); i++) {
         for (int j = 0; j < attr_score.size(); j++) {
@@ -36,7 +46,10 @@ std::vector<std::vector<bool>> populate(){
                 g.addEdge(id[j],id[i]);
             }
         }
-        BFS(id[i]); 
+        if(PrelimCheck(id1, id2) == true) {
+            BFS(id[i]);
+        }
+        isCompatible.push_back(visited);
     }
 }
 
@@ -44,12 +57,10 @@ std::vector<std::vector<bool>> populate(){
 BFS(int id1) { // // BFS through the graph
 
 // Mark all the vertices as not visited
-    vector<bool> visited;
-    for(int i = 0; i < visited.size(); i++){
-        for(int j = 0; j < visited.size(); j++) {
-            visited[i][j] == false; 
-        }
+    for(int j = 0; j < visited.size(); j++) {
+        visited[i][j] == false; 
     }
+    
  
     // Create a queue for BFS
     list<int> queue;
@@ -78,9 +89,6 @@ BFS(int id1) { // // BFS through the graph
     }
 }
 
-// complete adding all the edges 
-// BFS through the graph
-// according to the graph BFS we need to populate our vector 
 
 bool PrelimCheck(int id1, int id2) {
     // checking rel_type
