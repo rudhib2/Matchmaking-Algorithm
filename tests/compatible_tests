@@ -1,0 +1,10 @@
+// Compatible Test Cases
+// Given a compatible pair – should return compatible
+    // Have to pass prelim check & pass threshold check
+// Given a not compatible pair – should return not compatible
+    // One test case where the pair does not pass prelim check so it should just return not compatible (even if it passes threshold check)
+    // One test case where the pair passes prelim check but does not pass threshold check
+// Invalid input should return invalid
+    // Same id passed in for both 
+    // 3 ids passed in instead of 2
+    // 1 id passed in instead of 2

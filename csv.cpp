@@ -30,10 +30,6 @@ std::vector<std::vector<int>> file_to_prefvect(const std::string & filename){
         std::istringstream ss(line);
         std::vector<int> preferences;
 
-        //loop through the row and only in the first row 
-            //if the string in each column is in the pref_list then 
-                //for each row we only push back the value in that column
-
         while(ss) {
             std::string s;
             if (!getline(ss, s, ',')) {
