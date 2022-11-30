@@ -131,7 +131,7 @@ file(GLOB_RECURSE tests_src CONFIGURE_DEPENDS ${tests_dir}/*.cpp)
 include(Catch)
 
 add_executable(test ${tests_src})
-#target_link_libraries(test PRIVATE Catch2::Catch2WithMain libs src)
+target_link_libraries(test PRIVATE Catch2::Catch2WithMain) # src)
 
 catch_discover_tests(test)
 
