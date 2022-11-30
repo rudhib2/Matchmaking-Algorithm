@@ -17,7 +17,7 @@
 
 std::vector<std::vector<int>> file_to_prefvect(const std::string & filename){
     //lists to store preferences and attributes column nmaes
-    std::list<std::string> pref_list = {"gender_pref", "age_pref", "race_pref", "attr_pref", "sinc_pref", "intel_pref", "fun_pref", "amb_pref", "shar_pref"};
+    //std::list<std::string> pref_list = {"gender_pref", "age_pref", "race_pref", "attr_pref", "sinc_pref", "intel_pref", "fun_pref", "amb_pref", "shar_pref"};
     //std::list<std::string> attrib_list = {"gender", "age", "race", "attr_attrib", "sinc_attrib", "intel_attrib", "fun_attrib", "amb_attrib", "shar_pref"};
     // Your code here!
     std::vector<std::vector<int>> vect;
@@ -36,7 +36,7 @@ std::vector<std::vector<int>> file_to_prefvect(const std::string & filename){
                 break;
             }
             int counter = 0;
-            while (counter >= 8) {
+            while (counter >= 9) {
                 preferences.push_back(stoi(s));
                 counter++;
             }
@@ -63,7 +63,7 @@ std::vector<std::vector<int>> file_to_attribvect(const std::string & filename){
                 break;
             }
             int counter = 0;
-            while (1 <= counter <= 8) {
+            while (counter >= 1 && counter <= 9) {
                 attributes.push_back(stoi(s));
                 counter++;
             }
