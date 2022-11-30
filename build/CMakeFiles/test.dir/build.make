@@ -73,29 +73,29 @@ CMakeFiles/test.dir/tests/compatible_tests.cpp.o: CMakeFiles/test.dir/flags.make
 CMakeFiles/test.dir/tests/compatible_tests.cpp.o: ../tests/compatible_tests.cpp
 CMakeFiles/test.dir/tests/compatible_tests.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/workspaces/CS 225/CS225_Matchmaking/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test.dir/tests/compatible_tests.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/tests/compatible_tests.cpp.o -MF CMakeFiles/test.dir/tests/compatible_tests.cpp.o.d -o CMakeFiles/test.dir/tests/compatible_tests.cpp.o -c "/workspaces/CS 225/CS225_Matchmaking/tests/compatible_tests.cpp"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/tests/compatible_tests.cpp.o -MF CMakeFiles/test.dir/tests/compatible_tests.cpp.o.d -o CMakeFiles/test.dir/tests/compatible_tests.cpp.o -c "/workspaces/CS 225/CS225_Matchmaking/tests/compatible_tests.cpp"
 
 CMakeFiles/test.dir/tests/compatible_tests.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/tests/compatible_tests.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/workspaces/CS 225/CS225_Matchmaking/tests/compatible_tests.cpp" > CMakeFiles/test.dir/tests/compatible_tests.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/workspaces/CS 225/CS225_Matchmaking/tests/compatible_tests.cpp" > CMakeFiles/test.dir/tests/compatible_tests.cpp.i
 
 CMakeFiles/test.dir/tests/compatible_tests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/tests/compatible_tests.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/workspaces/CS 225/CS225_Matchmaking/tests/compatible_tests.cpp" -o CMakeFiles/test.dir/tests/compatible_tests.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/workspaces/CS 225/CS225_Matchmaking/tests/compatible_tests.cpp" -o CMakeFiles/test.dir/tests/compatible_tests.cpp.s
 
 CMakeFiles/test.dir/tests/populate_tests.cpp.o: CMakeFiles/test.dir/flags.make
 CMakeFiles/test.dir/tests/populate_tests.cpp.o: ../tests/populate_tests.cpp
 CMakeFiles/test.dir/tests/populate_tests.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/workspaces/CS 225/CS225_Matchmaking/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/test.dir/tests/populate_tests.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/tests/populate_tests.cpp.o -MF CMakeFiles/test.dir/tests/populate_tests.cpp.o.d -o CMakeFiles/test.dir/tests/populate_tests.cpp.o -c "/workspaces/CS 225/CS225_Matchmaking/tests/populate_tests.cpp"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/tests/populate_tests.cpp.o -MF CMakeFiles/test.dir/tests/populate_tests.cpp.o.d -o CMakeFiles/test.dir/tests/populate_tests.cpp.o -c "/workspaces/CS 225/CS225_Matchmaking/tests/populate_tests.cpp"
 
 CMakeFiles/test.dir/tests/populate_tests.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/tests/populate_tests.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/workspaces/CS 225/CS225_Matchmaking/tests/populate_tests.cpp" > CMakeFiles/test.dir/tests/populate_tests.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/workspaces/CS 225/CS225_Matchmaking/tests/populate_tests.cpp" > CMakeFiles/test.dir/tests/populate_tests.cpp.i
 
 CMakeFiles/test.dir/tests/populate_tests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/tests/populate_tests.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/workspaces/CS 225/CS225_Matchmaking/tests/populate_tests.cpp" -o CMakeFiles/test.dir/tests/populate_tests.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/workspaces/CS 225/CS225_Matchmaking/tests/populate_tests.cpp" -o CMakeFiles/test.dir/tests/populate_tests.cpp.s
 
 # Object files for target test
 test_OBJECTS = \
@@ -108,8 +108,6 @@ test_EXTERNAL_OBJECTS =
 test: CMakeFiles/test.dir/tests/compatible_tests.cpp.o
 test: CMakeFiles/test.dir/tests/populate_tests.cpp.o
 test: CMakeFiles/test.dir/build.make
-test: /usr/lib/libCatch2Main.a
-test: /usr/lib/libCatch2.a
 test: CMakeFiles/test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/workspaces/CS 225/CS225_Matchmaking/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test.dir/link.txt --verbose=$(VERBOSE)

@@ -73,15 +73,15 @@ CMakeFiles/main.dir/entry/main.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/entry/main.cpp.o: ../entry/main.cpp
 CMakeFiles/main.dir/entry/main.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/workspaces/CS 225/CS225_Matchmaking/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/entry/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/entry/main.cpp.o -MF CMakeFiles/main.dir/entry/main.cpp.o.d -o CMakeFiles/main.dir/entry/main.cpp.o -c "/workspaces/CS 225/CS225_Matchmaking/entry/main.cpp"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/entry/main.cpp.o -MF CMakeFiles/main.dir/entry/main.cpp.o.d -o CMakeFiles/main.dir/entry/main.cpp.o -c "/workspaces/CS 225/CS225_Matchmaking/entry/main.cpp"
 
 CMakeFiles/main.dir/entry/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/entry/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/workspaces/CS 225/CS225_Matchmaking/entry/main.cpp" > CMakeFiles/main.dir/entry/main.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/workspaces/CS 225/CS225_Matchmaking/entry/main.cpp" > CMakeFiles/main.dir/entry/main.cpp.i
 
 CMakeFiles/main.dir/entry/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/entry/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/workspaces/CS 225/CS225_Matchmaking/entry/main.cpp" -o CMakeFiles/main.dir/entry/main.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/workspaces/CS 225/CS225_Matchmaking/entry/main.cpp" -o CMakeFiles/main.dir/entry/main.cpp.s
 
 # Object files for target main
 main_OBJECTS = \
