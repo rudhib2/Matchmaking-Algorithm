@@ -1,58 +1,35 @@
-# Requires the following project directory structure:
-#  /bin
-#  /obj
-#  /src
+EXENAME = main
+TEST = test
+OBJS = main.o Graph.o BFS.o Populate.o
 
-# Use 'make remove' to clean up the hole project
+CXX = clang++
+CXXFLAGS = $(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic
+LD = clang++
+LDFLAGS = -std=c++1y -stdlib=libc++ -lc++abi -lm
 
-# Name of target file
-TARGET     = CS225_Matchmaking.exe
+all : $(EXENAME)
 
-CXX        = clang++
-#CXXFLAGS   = -std=c++11 \
-#             -Weverything -Wall -Wextra -Werror -Wpointer-arith -Wcast-qual \
-#             -Wno-missing-braces -Wempty-body -Wno-error=uninitialized \
-#             -Wno-error=deprecated-declarations \
-#             -pedantic-errors -pedantic \
-#             -Os
-CXXFLAGS = -g
+output_msg: ; $(CLANG_VERSION_MSG)
 
-LD         = clang++ -o
-LDFLAGS    = -Wall -pedantic
+$(EXENAME) : output_msg $(OBJS)
+    $(LD) $(OBJS) $(LDFLAGS) -o $(EXENAME)
 
-#SRCDIR     = src
-#OBJDIR     = obj
-#BINDIR     = bin
-SRCDIR = ./
-OBJDIR = ./
-BINDIOR = ./
+#object file dependncies
+main.o : main.cpp Graph.cpp Graph.h BFS.h BFS.cpp Populate.h Populate.cpp
+    $(CXX) $(CXXFLAGS) main.cpp
 
-SOURCES   := $(wildcard $(SRCDIR)/*.cpp)
-INCLUDES  := $(wildcard $(SRCDIR)/*.h)
-OBJECTS   := $(SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
+graph.o : Graph.cpp Graph.h 
+    $(CXX) $(CXXFLAGS) Graph.cpp
 
-RM         = rm -f
+BFS.o : BFS.cpp BFS.h Graph.cpp Graph.h
+    $(CXX) $(CXXFLAGS) BFS.cpp 
 
-$(TARGET) : $(OBJECTS)
-	@$(LD) $@ $(LDFLAGS) $(OBJECTS)
-	@echo "Linking complete!"
+Populate.o : main.cpp Graph.cpp Graph.h BFS.h BFS.cpp Populate.h Populate.cpp
+    $(CXX) $(CXXFLAGS) Populate.cpp
 
 
+test: output_msg tests.o graph.o utility.o airport.o
+    $(LD) tests.o utility.o graph.o airport.o $(LDFLAGS) -o test
 
-$(BINDIR)/$(TARGET): $(OBJECTS)
-	@$(LD) $@ $(LDFLAGS) $(OBJECTS)
-	@echo "Linking complete!"
-
-$(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.cpp
-	@$(CXX) $(CXXFLAGS) -c $< -o $@
-	@echo "Compiled "$<" successfully!"
-
-.PHONY: clean
-clean:
-	@$(RM) $(OBJECTS)
-	@echo "Cleanup complete!"
-
-.PHONY: remove
-remove: clean
-	@$(RM) $(BINDIR)/$(TARGET)
-	@echo "Executable removed!"
+tests.o: tests/tests.cpp tests/catch.hpp src/graph.h src/airport.h src/station.h src/utility.h
+    $(CXX) $(CXXFLAGS) tests/tests.cpp

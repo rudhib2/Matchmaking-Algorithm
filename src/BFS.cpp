@@ -4,7 +4,7 @@ BFS() {
     // setting everything to false by default 
     for(int i = 0; i < compat.size(); i++){
         for(int j = 0; j < compat.size(); j++) {
-            compat[i][j] == false; 
+            compat[i][j] == false;
         }
     }
 }
