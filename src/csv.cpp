@@ -1,5 +1,4 @@
 
-
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
@@ -21,25 +20,22 @@ std::vector<std::vector<int>> file_to_prefvect(const std::string & filename){
     //std::list<std::string> attrib_list = {"gender", "age", "race", "attr_attrib", "sinc_attrib", "intel_attrib", "fun_attrib", "amb_attrib", "shar_pref"};
     // Your code here!
     std::vector<std::vector<int>> vect;
-    std::ifstream file(filename);
-    while (file) {
-        std::string line;
-        if (!getline(file, line)) {
-            break;
-        }
+    std::fstream file(filename);
+    int counter = 0;
+    std::string line;
+    getline(file, line); 
+    while (getline(file, line)) {
         std::istringstream ss(line);
         std::vector<int> preferences;
-
         while(ss) {
             std::string s;
             if (!getline(ss, s, ',')) {
                 break;
             }
-            int counter = 0;
-            while (counter >= 9) {
+            while (counter >= 10) {
                 preferences.push_back(stoi(s));
-                counter++;
             }
+            counter++;
         }
         vect.push_back(preferences);
     }
@@ -48,12 +44,12 @@ std::vector<std::vector<int>> file_to_prefvect(const std::string & filename){
 
 std::vector<std::vector<int>> file_to_attribvect(const std::string & filename){
     std::vector<std::vector<int>> vect;
-    std::ifstream file(filename);
-    while (file) {
+    std::fstream file(filename);
+    int counter = 0;
+    std::string line;
+    getline(file, line); 
+    while (getline(file, line)) {
         std::string line;
-        if (!getline(file, line)) {
-            break;
-        }
         std::istringstream ss(line);
         std::vector<int> attributes;
 
@@ -62,9 +58,9 @@ std::vector<std::vector<int>> file_to_attribvect(const std::string & filename){
             if (!getline(ss, s, ',')) {
                 break;
             }
-            int counter = 0;
             while (counter >= 1 && counter <= 9) {
                 attributes.push_back(stoi(s));
+                std::cout << s << std::endl; 
                 counter++;
             }
         }
@@ -76,13 +72,11 @@ std::vector<std::vector<int>> file_to_attribvect(const std::string & filename){
 
 std::vector<int> file_to_ids(const std::string & filename) {
     std::vector<int> vect;
-    std::ifstream file(filename);
+    std::fstream file(filename);
     int counter = 0;
-    while (file) {
-        std::string line;
-        if (!getline(file, line)) {
-            break;
-        }
+    std::string line;
+    getline(file, line); 
+    while (getline(file, line)) {
         std::istringstream ss(line);
         while(ss) {
             std::string s;
@@ -90,7 +84,7 @@ std::vector<int> file_to_ids(const std::string & filename) {
                 break;
             }
             while (counter == 0) {
-                vect.push_back(stoi(s));
+                vect.push_back(std::stoi(s));
                 counter++;
             }
         }
