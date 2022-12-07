@@ -1,8 +1,8 @@
 
-using namespace std;
-#include iostream
+#include <iostream>
 #include <vector>
 #include <list>
+# pragma once 
 
  
 // This class represents a directed graph using
@@ -10,13 +10,12 @@ using namespace std;
 class Graph
 {
     int V;// No. of vertices
- 
     // Pointer to an array containing adjacency lists
     std::vector<std::list<int>> adj;  
 public:
     Graph(int V);  // Constructor
- 
     // function to add an edge to graph
-    void addEdge(int v, int w); 
-  
+    std::vector<bool> visited;
+    void addEdge(int v, int w);   
+    void BFS(int id1); 
 };
