@@ -32,15 +32,9 @@ TEST_CASE("check_if_clean", "[weight = 1]") {
 TEST_CASE("file_to_prefvect", "[weight=1]") {
     std::cout << "test working" << std::endl;
     std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
-<<<<<<< HEAD
     std::cout << "here" << std::endl;
     for (unsigned a = 2; a < prefs.size(); a++) { 
         for (unsigned b = 0; b < prefs[a].size(); b++) {
-=======
-
-    for (unsigned a = 0; a < prefs.size(); a++) { 
-        for (unsigned b = 2; b < prefs[a].size(); b++) {
->>>>>>> refs/remotes/origin/main
             REQUIRE(prefs[a][b] >= 0); 
             REQUIRE(prefs[a][b] <= 10); 
         }
@@ -66,7 +60,6 @@ TEST_CASE("file_to_prefvect", "[weight=1]") {
 }
 
 
-<<<<<<< HEAD
 // TEST_CASE("file_to_attribvect", "[weight=1]") {
 //     std::vector<std::vector<int>> attribs  = file_to_attribvect("../tests/CS225_matchmaking.csv");
 //     for (unsigned a = 2; a < attribs.size(); a++) { 
@@ -81,42 +74,21 @@ TEST_CASE("file_to_prefvect", "[weight=1]") {
 //         REQUIRE(attribs[0][i] >= 0);
 //         REQUIRE(attribs[0][i] <= 1);
 //     }
-=======
-TEST_CASE("file_to_attribvect", "[weight=1]") {
-    std::vector<std::vector<int>> attribs  = file_to_attribvect("../tests/CS225_matchmaking.csv");
-for (unsigned a = 0; a < attribs.size(); a++) { 
-        for (unsigned b = 2; b < attribs[a].size(); b++) {
-            REQUIRE(attribs[a][b] >= 0); 
-            REQUIRE(attribs[a][b] <= 10); 
-        }
-    }
 
+std::vector<int> first_vec_ans = {0,21,4,6,8,8,8, 7}; 
 
-for(unsigned i = 0; i < attribs.size(); i++) { 
-        REQUIRE(attribs[i][0] >= 0);
-        REQUIRE(attribs[i][0] <= 1);
-    }
->>>>>>> refs/remotes/origin/main
+for(unsigned j = 0; j < first_vec_ans.size(); j++){ 
+    REQUIRE(attribs[0][j] == first_vec_ans[j]);
+} 
 
-    std::vector<int> first_vec_ans = {0,21,4,6,8,8,8, 7}; 
+std::vector<int> last_vec_ans = {1,25,2,8,7,6,7,7};
 
-    for(unsigned j = 0; j < first_vec_ans.size(); j++){ 
-        REQUIRE(attribs[0][j] == first_vec_ans[j]);
-    } 
+for(unsigned j = 0; j < last_vec_ans.size(); j++){ 
+    REQUIRE(attribs[attribs.size() - 1][j] == last_vec_ans[j]);
+}
 
-    std::vector<int> last_vec_ans = {1,25,2,8,7,6,7,7};
-    
-    for(unsigned j = 0; j < last_vec_ans.size(); j++){ 
-        REQUIRE(attribs[attribs.size() - 1][j] == last_vec_ans[j]);
-    }
-
-<<<<<<< HEAD
     // REQUIRE(attribs.size() == 545);
 //}
-=======
-    REQUIRE(attribs.size() == 544);
-}
->>>>>>> refs/remotes/origin/main
 
 // TEST_CASE("file_to_ids", "[weight=1]") {
 
