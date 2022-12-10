@@ -23,7 +23,9 @@ std::vector<std::vector<int>> file_to_prefvect(const std::string & filename){
     std::fstream file(filename);
     std::string line;
     getline(file, line); 
+    std::vector<std::string> to_split; 
     while (getline(file, line)) {
+<<<<<<< HEAD
         int counter = 0;
         std:: cout <<"print" << std::endl;
         std::istringstream ss(line);
@@ -38,8 +40,20 @@ std::vector<std::vector<int>> file_to_prefvect(const std::string & filename){
                 preferences.push_back(stoi(s));
             }
             counter++;
+=======
+        int counter = 0; 
+        std::vector<int> result;
+        std::stringstream s_stream(line); //create string stream from the string
+        while(s_stream.good()) {
+        std::string substr;
+        getline(s_stream, substr, ','); //get first string delimited by comma
+        counter++; 
+        if (counter >= 11) {
+            result.push_back(std::stoi(substr));
+>>>>>>> refs/remotes/origin/main
         }
-        vect.push_back(preferences);
+        } 
+        vect.push_back(result);  
     }
     return vect;
 }
@@ -50,26 +64,24 @@ std::vector<std::vector<int>> file_to_attribvect(const std::string & filename){
     int counter = 0;
     std::string line;
     getline(file, line); 
+    std::vector<std::string> to_split; 
     while (getline(file, line)) {
-        std::string line;
-        std::istringstream ss(line);
-        std::vector<int> attributes;
-
-        while(ss) {
-            std::string s;
-            if (!getline(ss, s, ',')) {
-                break;
-            }
-            while (counter >= 1 && counter <= 9) {
-                attributes.push_back(stoi(s));
-                std::cout << s << std::endl; 
-                counter++;
+        int counter = 0; 
+        std::vector<int> result;
+        std::stringstream s_stream(line); //create string stream from the string
+        while(s_stream.good()) {
+            std::string substr;
+            getline(s_stream, substr, ','); //get first string delimited by comma
+            counter++; 
+            if (counter > 1 && counter < 10) {
+                result.push_back(std::stoi(substr));
             }
         }
-        vect.push_back(attributes);
+        vect.push_back(result);
     }
     return vect;
 }
+
 
 
 std::vector<int> file_to_ids(const std::string & filename) {
