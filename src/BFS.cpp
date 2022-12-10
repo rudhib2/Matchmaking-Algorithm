@@ -76,6 +76,12 @@ std::vector<std::vector<bool>> Traversal::populate(){
         }
         isCompat.push_back(g.visited);
     }
+
+    for(size_t i = 0; i < isCompat.size(); i++) {
+        for(size_t j = 0; j < isCompat[i].size(); j++) {
+            std::cout << isCompat[i][j] << std::endl;
+        }
+    }
     return isCompat; 
 }
 

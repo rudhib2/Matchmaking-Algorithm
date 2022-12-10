@@ -41,16 +41,16 @@ void Graph::BFS(int id1) { // // BFS through the graph
     }
 }
 
-    int minDistance(int dist[], bool sptSet[]) {
+    int Graph::minDistance(vector<int> dist, vector<bool> sptSet) {
         Traversal t; 
         Graph g(t.id.size());
         // Initialize min value
         int min = 0; 
         int min_index = 0;
  
-        for (int v = 0; v < t.id.size(); v++) {
+        for (size_t v = 0; v < t.id.size(); v++) {
             if (sptSet[v] == false && dist[v] <= min){
-                min = dist[V];
+                min = dist.at(V);
                 min_index = v; 
             }
         }
@@ -58,13 +58,14 @@ void Graph::BFS(int id1) { // // BFS through the graph
     }
 
 
-std::vector<int> dijkstra(std::vector<std::vector<int>> adj_matrix, int root) {
+std::vector<int> Graph::dijkstra(std::vector<std::vector<int>> adj_matrix, int root) {
     std::vector<int> dist;  
-    dist.resize(id.size());
+    Traversal t; 
+    dist.resize(t.id.size());
     // The output array.  
     // dist[i] will hold the shortest distance from src to i
  
-    std::vector<int> sptSet; 
+    std::vector<bool> sptSet; 
     // sptSet[i] will be true if vertex i is
     // included in shortest
     // path tree or shortest distance from src to i is
@@ -72,7 +73,7 @@ std::vector<int> dijkstra(std::vector<std::vector<int>> adj_matrix, int root) {
  
     // Initialize all distances as -1 and stpSet[] as
     // false
-    for (int i = 0; i < id.size(); i++) {
+    for (size_t i = 0; i < t.id.size(); i++) {
         dist[i] = -1; 
         sptSet[i] = false; 
     }
@@ -80,7 +81,7 @@ std::vector<int> dijkstra(std::vector<std::vector<int>> adj_matrix, int root) {
     // Distance of source vertex from itself is always 0
     dist[root] = 0;
     // Find shortest path for all vertices
-    for (int count = 0; count < id.size() - 1; count++) {
+    for (size_t count = 0; count < t.id.size() - 1; count++) {
         // Pick the minimum distance vertex from the set of
         // vertices not yet processed. u is always equal to
         // src in the first iteration.
@@ -91,7 +92,7 @@ std::vector<int> dijkstra(std::vector<std::vector<int>> adj_matrix, int root) {
  
         // Update dist value of the adjacent vertices of the
         // picked vertex.
-        for (int v = 0; v < id.size(); v++)
+        for (size_t v = 0; v < t.id.size(); v++)
  
             // Update dist[v] only if is not in sptSet,
             // there is an edge from u to v, and total
