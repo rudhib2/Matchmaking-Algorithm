@@ -97,8 +97,7 @@ std::vector<std::vector<int>> Traversal::adjacency_matrix(){
 }
 
 std::vector<int> Traversal::compat_list(){
-    Graph g(id.size()); 
-    store_values(); 
+    Graph g(id.size());  
     std::vector<std::vector<bool>> isCompat;
     bool flag;  
     std::vector<int> tmp; 

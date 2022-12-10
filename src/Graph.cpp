@@ -1,4 +1,5 @@
 # include "Graph.h"
+#include "BFS.h"
 #include <list>
 using namespace std;
 
@@ -41,11 +42,13 @@ void Graph::BFS(int id1) { // // BFS through the graph
 }
 
     int minDistance(int dist[], bool sptSet[]) {
+        Traversal t; 
+        Graph g(t.id.size());
         // Initialize min value
         int min = 0; 
         int min_index = 0;
  
-        for (int v = 0; v < id.size(); v++) {
+        for (int v = 0; v < t.id.size(); v++) {
             if (sptSet[v] == false && dist[v] <= min){
                 min = dist[V];
                 min_index = v; 

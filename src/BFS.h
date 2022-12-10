@@ -3,6 +3,7 @@
 using namespace std; 
 
 class Traversal{ 
+    public: 
      bool isCompatible(int id1, int id2); // returns yes or no if the score of the ids are within the range
      std::vector<std::vector<bool>> populate(); // returns a vector of booleans which denote compatibility
      bool PrelimCheck(int id1, int id2);

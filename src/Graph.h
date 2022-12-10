@@ -10,10 +10,10 @@ using namespace std;
 // adjacency list representation
 class Graph
 {
-    int V;// No. of vertices
+public:
     // Pointer to an array containing adjacency lists
     std::vector<std::list<int>> adj;  
-public:
+    int V;// No. of vertices
     Graph(int V);  // Constructor
     // function to add an edge to graph
     std::vector<bool> visited;
