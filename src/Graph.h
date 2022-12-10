@@ -2,8 +2,9 @@
 #include <iostream>
 #include <vector>
 #include <list>
-# pragma once 
+#pragma once 
 
+using namespace std; 
  
 // This class represents a directed graph using
 // adjacency list representation
@@ -17,5 +18,10 @@ public:
     // function to add an edge to graph
     std::vector<bool> visited;
     void addEdge(int v, int w);   
-    void BFS(int id1); 
+    void BFS(int id1);  
+    std::vector<int> dijkstra(std::vector<std::vector<int>>, int);
+    int minDistance(vector<int>, vector<bool>); 
+
+    std::vector<int> dist;
+    std::vector<int> sptSet;   
 };

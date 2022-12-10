@@ -4,15 +4,6 @@
 #include "CalcScore.h"
 
 
-// BFS() {
-//     // setting everything to false by default 
-//     for(int i = 0; i < compat.size(); i++){
-//         for(int j = 0; j < compat.size(); j++) {
-//             compat[i][j] == false;
-//         }
-//     }
-// }
-
 void Traversal::store_values() {
     pref = file_to_prefvect("../tests/CS225_matchmaking.csv"); 
     attr = file_to_attribvect("../tests/CS225_matchmaking.csv"); 
@@ -68,10 +59,49 @@ std::vector<std::vector<bool>> Traversal::populate(){
     std::vector<std::vector<bool>> isCompat;
     bool flag;  
 
-    // // Mark all the vertices as not visited
-    // for(size_t i = 0; i < visited.size(); i++){
-    //    visited[i] = false; 
-    // }
+    for (size_t i = 0; i < pref_score.size(); i++) {
+        for (size_t j = 0; j < attr_score.size(); j++) {
+            if(i == j) {
+                continue; 
+            }
+            flag = isCompatible(i,j);
+
+            // after getting the boolean, if it is true, we add an edge 
+            if (flag == true) {
+                g.addEdge(id[i],id[j]);
+            }
+        }
+        if(flag == true) {
+            g.BFS(id[i]);    
+        }
+        isCompat.push_back(g.visited);
+    }
+    return isCompat; 
+}
+
+std::vector<std::vector<int>> Traversal::adjacency_matrix(){ 
+    // if there exists an edge between the two vertices then the attribute score will be held in that position in the matrix
+    // otherwise there will be -1; 
+    std::vector<std::vector<bool>> temp = populate(); 
+
+    for(size_t i =  0; i < temp.size(); i++) {
+        for(size_t j = 0; j < temp[i].size(); j++) {
+            if(temp[i][j] == false) {
+                adj_matrix[i][j] = -1; 
+            } else {
+                adj_matrix[i][j] = attr_score[3];
+            }
+        }
+    }
+    return adj_matrix; 
+}
+
+std::vector<int> Traversal::compat_list(){
+    Graph g(id.size()); 
+    store_values(); 
+    std::vector<std::vector<bool>> isCompat;
+    bool flag;  
+    std::vector<int> tmp; 
 
     for (size_t i = 0; i < pref_score.size(); i++) {
         for (size_t j = 0; j < attr_score.size(); j++) {
@@ -86,12 +116,42 @@ std::vector<std::vector<bool>> Traversal::populate(){
             }
         }
         if(flag == true) {
-            g.BFS(id[i]);
+             tmp = g.dijkstra(adj_matrix, i);
         }
-        isCompat.push_back(g.visited);
     }
-    return isCompat; 
+
+    // to_return now contains the distance of each person from the root node for that graph
+    // we need to return a list of the top 3 people that have the shortest distance from the root 
+    
+    std::vector<int> temp_id; 
+    temp_id.resize(id.size());
+    for(size_t i = 0; i < id.size(); i++) {
+        temp_id[i] = id[i]; 
+    }
+
+    // using bubble sort for sorting 
+    for(size_t i = 0; i < id.size() - 1; i++) {
+        for(size_t j = 0; j < id.size() - 1; j++) {
+            if(tmp[j] > tmp[j+1]) {
+                size_t temp = tmp[j];
+                tmp[j] = tmp[j+1];
+                tmp[j+1] = temp; 
+
+                size_t temp1 = temp_id[j];
+                temp_id[j] = temp_id[j+1];
+                temp_id[j+1] = temp; 
+            }
+        }
+    }
+     
+    std::vector<int> to_return; 
+    for(size_t i = 0; i < 3; i++) {
+        to_return.push_back(id[i]);
+    }
+    return to_return;
 }
+
+
 
 
 
