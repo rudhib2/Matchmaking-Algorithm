@@ -7,6 +7,7 @@
 TEST_CASE("CalcPrefScore Test 1 ~ test first 10 IDs", "[weight=1]") {
     std::cout << "test working" << std::endl;
     //std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
+    std::vector<int> pref_score = CalcPrefScore(vector<vector<int>> pref, vector<int> &pref_score);
     std::cout << "here" << std::endl;
         REQUIRE(pref_score[0] = 180);
         REQUIRE(pref_score[1] = 360);
@@ -23,6 +24,7 @@ TEST_CASE("CalcPrefScore Test 1 ~ test first 10 IDs", "[weight=1]") {
 TEST_CASE("CalcAttribScore Test 1 ~ test first 10 IDs", "[weight=1]") {
     std::cout << "test working" << std::endl;
     //std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
+    std::vector<int> attrib_score = CalcAttribScore(vector<vector<int>> attrib, vector<int> &attr_score);
     std::cout << "here" << std::endl;
         REQUIRE(attrib_score[0] = 356);
         REQUIRE(attrib_score[1] = 474);
