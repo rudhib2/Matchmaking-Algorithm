@@ -7,38 +7,38 @@
 #include <vector>
 #include <set>
 
-//CALCULATING PREF & ATTRIB SCORES
-TEST_CASE("CalcPrefScore Test 1 ~ test first 10 IDs", "[weight=1]") {
-    std::cout << "test working" << std::endl;
-    std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
-    std::cout << "here" << std::endl;
-        REQUIRE(pref_score[0] = 180);
-        REQUIRE(pref_score[1] = 360);
-        REQUIRE(pref_score[2] = 340);
-        REQUIRE(pref_score[3] = 370);
-        REQUIRE(pref_score[4] = 180);
-        REQUIRE(pref_score[5] = 320);
-        REQUIRE(pref_score[6] = 240);
-        REQUIRE(pref_score[7] = 350);
-        REQUIRE(pref_score[8] = 320);
-        REQUIRE(pref_score[9] = 290);
-}
+// //CALCULATING PREF & ATTRIB SCORES
+// TEST_CASE("CalcPrefScore Test 1 ~ test first 10 IDs", "[weight=1]") {
+//     std::cout << "test working" << std::endl;
+//     //std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
+//     std::cout << "here" << std::endl;
+//         REQUIRE(pref_score[0] = 180);
+//         REQUIRE(pref_score[1] = 360);
+//         REQUIRE(pref_score[2] = 340);
+//         REQUIRE(pref_score[3] = 370);
+//         REQUIRE(pref_score[4] = 180);
+//         REQUIRE(pref_score[5] = 320);
+//         REQUIRE(pref_score[6] = 240);
+//         REQUIRE(pref_score[7] = 350);
+//         REQUIRE(pref_score[8] = 320);
+//         REQUIRE(pref_score[9] = 290);
+// }
 
-TEST_CASE("CalcAttribScore Test 1 ~ test first 10 IDs", "[weight=1]") {
-    std::cout << "test working" << std::endl;
-    std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
-    std::cout << "here" << std::endl;
-        REQUIRE(attrib_score[0] = 356);
-        REQUIRE(attrib_score[1] = 474);
-        REQUIRE(attrib_score[2] = 114);
-        REQUIRE(attrib_score[3] = 271);
-        REQUIRE(attrib_score[4] = 474);
-        REQUIRE(attrib_score[5] = 458);
-        REQUIRE(attrib_score[6] = 509);
-        REQUIRE(attrib_score[7] = 427);
-        REQUIRE(attrib_score[8] = 356);
-        REQUIRE(attrib_score[9] = 271);
-}
+// TEST_CASE("CalcAttribScore Test 1 ~ test first 10 IDs", "[weight=1]") {
+//     std::cout << "test working" << std::endl;
+//     //std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
+//     std::cout << "here" << std::endl;
+//         REQUIRE(attrib_score[0] = 356);
+//         REQUIRE(attrib_score[1] = 474);
+//         REQUIRE(attrib_score[2] = 114);
+//         REQUIRE(attrib_score[3] = 271);
+//         REQUIRE(attrib_score[4] = 474);
+//         REQUIRE(attrib_score[5] = 458);
+//         REQUIRE(attrib_score[6] = 509);
+//         REQUIRE(attrib_score[7] = 427);
+//         REQUIRE(attrib_score[8] = 356);
+//         REQUIRE(attrib_score[9] = 271);
+// }
 
 
 
@@ -49,7 +49,7 @@ TEST_CASE("CalcAttribScore Test 1 ~ test first 10 IDs", "[weight=1]") {
 TEST_CASE("Desirability Test 1 ~ test top 10 IDs in high category", "[weight=1]") {
     std::cout << "test working" << std::endl;
     std::cout << "testing if accurate desirability_rank & accurate category(high)"
-    std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
+    //std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
     std::cout << "here" << std::endl;
         //this means for the key 171 the value should be 1 (if this is a map)
             //have to map each id to the rank
@@ -87,7 +87,7 @@ TEST_CASE("Desirability Test 1 ~ test top 10 IDs in high category", "[weight=1]"
 TEST_CASE("Desirability Test 2 ~ test top 10 IDs in average category", "[weight=1]") {
     std::cout << "test working" << std::endl;
     std::cout << "testing if accurate desirability_rank & accurate category(average)"
-    std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
+    //std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
     std::cout << "here" << std::endl;
         REQUIRE(desirability_rank[199] = 167);
         REQUIRE(category[199] = "average");
@@ -124,7 +124,7 @@ TEST_CASE("Desirability Test 2 ~ test top 10 IDs in average category", "[weight=
 TEST_CASE("Desirability Test 3 ~ test top 10 IDs in low category", "[weight=1]") {
     std::cout << "test working" << std::endl;
     std::cout << "testing if accurate desirability_rank & accurate category(low)"
-    std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
+    //std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
     std::cout << "here" << std::endl;
         REQUIRE(desirability_rank[68] = 356);
         REQUIRE(category[68] = "low");
@@ -165,7 +165,7 @@ TEST_CASE("Desirability Test 3 ~ test top 10 IDs in low category", "[weight=1]")
 TEST_CASE("Standards Test 1 ~ test top 10 IDs in high category", "[weight=1]") {
     std::cout << "test working" << std::endl;
     std::cout << "testing if accurate standards_rank & accurate category(high)"
-    std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
+    //std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
     std::cout << "here" << std::endl;
         REQUIRE(standards_rank[200] = 1);
         REQUIRE(category[200] = "high");
@@ -201,7 +201,7 @@ TEST_CASE("Standards Test 1 ~ test top 10 IDs in high category", "[weight=1]") {
 TEST_CASE("Standards Test 2 ~ test top 10 IDs in average category", "[weight=1]") {
     std::cout << "test working" << std::endl;
     std::cout << "testing if accurate standards_rank & accurate category(average)"
-    std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
+    //std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
     std::cout << "here" << std::endl;
         REQUIRE(standards_rank[63] = 180);
         REQUIRE(category[63] = "average");
@@ -238,7 +238,7 @@ TEST_CASE("Standards Test 2 ~ test top 10 IDs in average category", "[weight=1]"
 TEST_CASE("Standards Test 3 ~ test top 10 IDs in low category", "[weight=1]") {
     std::cout << "test working" << std::endl;
     std::cout << "testing if accurate standards_rank & accurate category(low)"
-    std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
+   //std::vector<std::vector<int>> prefs  = file_to_prefvect("../tests/CS225_matchmaking.csv");
     std::cout << "here" << std::endl;
         REQUIRE(standards_rank[476] = 343);
         REQUIRE(category[476] = "low");
