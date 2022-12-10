@@ -21,18 +21,20 @@ std::vector<std::vector<int>> file_to_prefvect(const std::string & filename){
     // Your code here!
     std::vector<std::vector<int>> vect;
     std::fstream file(filename);
-    int counter = 0;
     std::string line;
     getline(file, line); 
     while (getline(file, line)) {
+        int counter = 0;
+        std:: cout <<"print" << std::endl;
         std::istringstream ss(line);
         std::vector<int> preferences;
         while(ss) {
+            std:: cout << "print 2" << std::endl;
             std::string s;
             if (!getline(ss, s, ',')) {
                 break;
             }
-            while (counter >= 10) {
+            if (counter >= 9) {
                 preferences.push_back(stoi(s));
             }
             counter++;
