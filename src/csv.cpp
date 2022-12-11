@@ -106,3 +106,31 @@ std::vector<int> file_to_ids(const std::string & filename) {
     }
     return vect;
 }
+
+std::vector<int> CalcPrefScore(std::vector<std::vector<int>> pref){
+    std::vector<int> pref_score; 
+    int pref_s = 0;
+    for(unsigned i = 0; i < pref.size(); i++) {
+        pref_s = 0; 
+        for (unsigned j = 3; j < pref[i].size(); j++) {
+            pref_s += pref[i][j];
+        }
+        pref_s *=10; 
+        pref_score.push_back(pref_s);
+    }
+    return pref_score; 
+}
+
+std::vector<int> CalcAttribScore(std::vector<std::vector<int>> attrib){
+    std::vector<int> attrib_score; 
+    int attrib_s = 0; 
+    for(unsigned i = 0; i < attrib.size(); i++) {
+        attrib_s = 0; 
+        for (unsigned j = 3; j < attrib[i].size(); j++) {
+            attrib_s += attrib[i][j]; 
+        }
+        attrib_s *= 10; 
+        attrib_score.push_back(attrib_s);
+    }
+    return attrib_score; 
+}
