@@ -1,19 +1,15 @@
 
-<<<<<<< HEAD
 // using namespace std;
 // #include iostream
 // #include <vector>
 // #include <list>
-=======
 #include <iostream>
 #include <vector>
 #include <list>
 #pragma once 
->>>>>>> refs/remotes/origin/main
 
 using namespace std; 
  
-<<<<<<< HEAD
 // // This class represents a directed graph using
 // // adjacency list representation
 // class Graph
@@ -29,7 +25,6 @@ using namespace std;
 //     void addEdge(int v, int w); 
   
 // };
-=======
 // This class represents a directed graph using
 // adjacency list representation
 class Graph
@@ -49,4 +44,3 @@ public:
     std::vector<int> dist;
     std::vector<int> sptSet;   
 };
->>>>>>> refs/remotes/origin/main

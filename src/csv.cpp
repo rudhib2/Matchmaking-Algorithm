@@ -25,7 +25,7 @@ std::vector<std::vector<int>> file_to_prefvect(const std::string & filename){
     getline(file, line); 
     std::vector<std::string> to_split; 
     while (getline(file, line)) {
-<<<<<<< HEAD
+
         int counter = 0;
         std:: cout <<"print" << std::endl;
         std::istringstream ss(line);
@@ -40,7 +40,7 @@ std::vector<std::vector<int>> file_to_prefvect(const std::string & filename){
                 preferences.push_back(stoi(s));
             }
             counter++;
-=======
+
         int counter = 0; 
         std::vector<int> result;
         std::stringstream s_stream(line); //create string stream from the string
@@ -50,10 +50,10 @@ std::vector<std::vector<int>> file_to_prefvect(const std::string & filename){
         counter++; 
         if (counter >= 11) {
             result.push_back(std::stoi(substr));
->>>>>>> refs/remotes/origin/main
         }
         } 
         vect.push_back(result);  
+    }
     }
     return vect;
 }

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // #pragma once
 // #include <vector>
 // using std::vector;
@@ -16,7 +16,7 @@
 //       // gives a map which maps the id to the id of people that they are compatible with 
 
 // }
-=======
+
 #pragma once
 #include <vector>
 using namespace std; 
@@ -37,4 +37,4 @@ class Traversal{
     std::vector<std::vector<int>> attr;
     std::vector<std::vector<int>> adj_matrix; 
 };
->>>>>>> refs/remotes/origin/main
+

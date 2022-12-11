@@ -50,3 +50,52 @@ TEST CASES ~ manual work (Janani & Rudhi)
                 Not within 100 threshold so not compatible
 */
  
+
+#include <catch2/catch_test_macros.hpp>
+
+#include "../src/BFS.h"
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <set>
+
+TEST_CASE("BFS Test 1 ~ Compatible-basic", "[weight=1]") {
+    
+        REQUIRE(pref_score[4] = 370);
+        REQUIRE(attr_score[14] = 330);
+        REQUIRE(isCompatible(4, 14) = true);
+}
+
+TEST_CASE("BFS Test 1 ~ Not Compatible-prelim fails", "[weight=1]") {
+    
+        REQUIRE(pref[6][1] = 1);  //1-gender
+        REQUIRE(pref[6][2] = 23);   //2-age
+        REQUIRE(pref[6][0] = 2);   //0-rel_type
+        REQUIRE(PrelimCheck(6, 10) = false);
+}
+
+TEST_CASE("BFS Test 1 ~ Not Compatible-pass prelim fail threshold", "[weight=1]") {
+   
+    //A's pref:
+        REQUIRE(pref[1][1] = 0);  //1-gender
+        REQUIRE(pref[1][2] = 21);   //2-age
+        REQUIRE(pref[1][3] = 2);   //3-race
+        REQUIRE(pref[1][0] = 2);   //0-rel_type
+
+    //B's attribs:
+        REQUIRE(pref[34][0] = 0);  //0-gender
+        REQUIRE(pref[34][1] = 21);   //1-age
+        REQUIRE(pref[34][2] = 2);   //2-race
+        REQUIRE(pref[34][8] = 2);   //8-rel_type
+        REQUIRE(PrelimCheck(1, 34) = true);
+
+        REQUIRE(pref_score[1] = 180);
+        REQUIRE(attr_score[34] = 360);
+        REQUIRE(isCompatible(1, 34) = false);
+}
+
+TEST_CASE("BFS Test 1 ~ Not Compatible-same id", "[weight=1]") {
+
+        REQUIRE(isCompatible(4, 4) = false);
+}

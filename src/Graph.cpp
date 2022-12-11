@@ -1,23 +1,18 @@
-<<<<<<< HEAD
 // # include "Graph.h"
-=======
 # include "Graph.h"
 #include "BFS.h"
 #include <list>
 using namespace std;
->>>>>>> refs/remotes/origin/main
 
 // Graph::Graph(int V) {
 //     this->V = V;
 //     adj.resize(V);
 // }
  
-<<<<<<< HEAD
 // void Graph::addEdge(int v, int w) {
 //     adj[v].push_back(w); // Add w to v’s list.
 // }
  
-=======
 void Graph::addEdge(int v, int w) {
     adj[v].push_back(w); // Add w to v’s list.
 }
@@ -114,4 +109,3 @@ std::vector<int> Graph::dijkstra(std::vector<std::vector<int>> adj_matrix, int r
         }
         return dist; 
 }
->>>>>>> refs/remotes/origin/main
