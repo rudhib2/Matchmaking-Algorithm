@@ -2,6 +2,8 @@
 
 #include "../src/BFS.h"
 #include "../src/BFS.cpp"
+#include "../src/csv.cpp"
+#include "../src/csv.h"
 
 #include <algorithm>
 #include <iostream>

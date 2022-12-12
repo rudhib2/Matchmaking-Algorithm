@@ -21,11 +21,17 @@ In order to meet these goals, we utilized BFS traversal, Djikstra's algorithm, a
         - preferenes are the weight in the graph.
         - BFS is performed on the graph and the absolute values of scores are compared. If someone's score is greater than the preferred score, they pass
         - We perform BFS for all grapohs where only one node changes, ie, the person whose compatibility we are checking with all other people. The node of this person is what comes from the preferences vector. All other notes come from the attributes vector.
+    - **TALK ABOUT IMPLEMENTATION IN GREATER DETAIL**
+    - **TESTING ~ EXPLAIN TEST CASES BRIEFLY & OUTCOMES**
+    - **IF UNSUCCESSFUL ~ EXPLAIN INTENTIONS & REFLECTION**
 2. Djikstra's algorithm was used to find shortest paths between nodes in order to find who an individual is most compatable with. BFS tells weather people are compatible or not, but the degree of compatability is computed using this algorithm
     - There is a graph per person but now we'll make the graphs weighted using attributes
     - Using the algorithm, we'll find the shortest path between people and return in order from shortest to longest path the path that is shortest
     - The path that is shortest will reach the most compatible person and the longest will reach the least compatable among the people that are compatable.
-3. Kosaraju’s algorithm was used to place everyone in a category of desirability (based on an individual attributes, which category) ~ lower desirability, average desirability, high desirability [we can rename these], as well as a category of standards (based on an individual’s preferences) ~ lower standards, average standards, high standards.
+    - **TALK ABOUT IMPLEMENTATION IN GREATER DETAIL**
+    - **TESTING ~ EXPLAIN TEST CASES BRIEFLY & OUTCOMES**
+    - **IF UNSUCCESSFUL ~ EXPLAIN INTENTIONS & REFLECTION**
+3. Kosaraju’s algorithm **NEEDS TO BE MODIFIED AS PER RECENT CHANGES AFTER CALL W SAVYA** was used to place everyone in a category of desirability (based on an individual attributes, which category) ~ lower desirability, average desirability, high desirability [we can rename these], as well as a category of standards (based on an individual’s preferences) ~ lower standards, average standards, high standards.
     - Implementation for attributes / desirability category ~
         - For each person in the dataset, there is one big graph represented as an adjacency matrix with x and y axis being the id vector (all people in the dataset’s ids)
         - Compare every person’s attribute score – use pre-written function to calculate
@@ -42,5 +48,8 @@ In order to meet these goals, we utilized BFS traversal, Djikstra's algorithm, a
         - Then we sort by ascending order – the first 181 people are low category, the next 182 people are average category, the last 181 people are high category
     - Implementation for preferences / standards category ~
         - It is the same as described above, but instead of attribute ranks, we'll use preference ranks
+    - **TALK ABOUT IMPLEMENTATION IN GREATER DETAIL**
+    - **TESTING ~ EXPLAIN TEST CASES BRIEFLY & OUTCOMES**
+    - **IF UNSUCCESSFUL ~ EXPLAIN INTENTIONS & REFLECTION**
 
-
+By implementing these algorithms, we learned that the initial scope of the project could be broadened. We realized half way through that our initial two goals could be accomplished with just BFS and Djikstras, so we ideated and came up with new functionalities for the project using Kosaraju's algorithm. Reflecting on what didn't work **NEED TO FINISH WRITING BASED ON HOW TESTING GOES ~ IF SOMETHING DOESN'T FULLY FUNCTION PROPERLY, EXPLAIN HERE**
