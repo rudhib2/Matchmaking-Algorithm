@@ -17,16 +17,25 @@
 //let's keep threshold 25 
 
 
-TEST_CASE("BFS Test 1 ~ Compatible", "[weight=1]") {
+
+TEST_CASE("Djikstra Test 1 ~ Compatible", "[weight=1]") {
+    std::vector<int> vect;
+    djikstra(adj_matrix, 4) = vect;
     
-        REQUIRE(pref_score[4] = 370);
-        REQUIRE(attr_score[14] = 330);
-        REQUIRE(isCompatible(4, 14) = true);
+        REQUIRE(std::find(vect.begin(), vect.end(), 12) != vect.end());
+        REQUIRE(std::find(vect.begin(), vect.end(), 40) != vect.end());
+        REQUIRE(std::find(vect.begin(), vect.end(), 49) != vect.end());
+        REQUIRE(std::find(vect.begin(), vect.end(), 433) != vect.end());
+        REQUIRE(std::find(vect.begin(), vect.end(), 78) == vect.end());
+        REQUIRE(std::find(vect.begin(), vect.end(), 8) == vect.end());
+        
 }
 
-TEST_CASE("BFS Test 1 ~ Compatible-basic", "[weight=1]") {
-    
-        REQUIRE(pref_score[4] = 370);
-        REQUIRE(attr_score[14] = 330);
-        REQUIRE(isCompatible(4, 14) = true);
-}
+/* ishanvi: i) I'm not sure if I can create a vector inside test cases - i have done this assuming I can, if
+not then just make vect that's inside djikstra function a public variable 
+ii) i'm also not sure if adj_matrix is accessible
+iii) basically if root is 4 then 12, 40, 49 and 433 should be in the compatibility vector (if u check in the
+file, the root will be 6 and the compatible vectors will be 14,42,51 and 535 but because of 0-indexing and 
+because first row/col in the excel is ids which we don't have in vector, i did -2 for all vals)
+iv) 78 and 8 are random ids thats hould not be compatible to 4.
+*/
