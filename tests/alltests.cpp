@@ -1,5 +1,6 @@
 #include <catch2/catch_test_macros.hpp>
 
+#include "../src/Kosaraju.h"
 #include "../src/csv.h"
 #include <algorithm>
 #include <iostream>
@@ -164,5 +165,17 @@ TEST_CASE("check_attrib_score", "[weight = 1]") {
     }
 }
 
+
+TEST_CASE("check_Kosaraju_with_five_people", "[weight = 1]") {  
+    int ans = Kosaraju(5);
+    // numComponents identified in Kosaraju must be greater than 0 
+    // at the least, every node is connected to itself
+    REQUIRE(ans > 0); 
+    // Connected Components calculated if pref score is less than attrib score: 
+    // person 1 
+    // person 4 
+    // person 2, 3, and 5 
+    REQUIRE(ans == 3); 
+}
 
 
