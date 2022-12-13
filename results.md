@@ -27,10 +27,11 @@ In order to meet these goals, we utilized BFS traversal, Djikstra's algorithm, a
     - We perform BFS for all graphs where only one node changes, ie, the person whose compatibility we are checking with all other people. 
 
 TESTS for BFS:
-    - test 1: compatible pair
-    - test 2: not compatible (PrelimCheck fails)
-    - test 3: not compatible (PrelimCheck fails - but threshold passes: overall result should still be not compatible)
-    - test 4: not compatible (same id is passed for both: expected result should be not compatile as the same person cannot be compatible to themselves)
+   
+   - test 1: compatible pair
+   - test 2: not compatible (PrelimCheck fails)
+   - test 3: not compatible (PrelimCheck fails - but threshold passes: overall result should still be not compatible)
+   - test 4: not compatible (same id is passed for both: expected result should be not compatile as the same person cannot be compatible to themselves)
     
     
     
