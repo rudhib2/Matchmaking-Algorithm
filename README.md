@@ -22,7 +22,12 @@
  
  
                                                                          **RUNNING**
- - 
+ - to be able to run the tests, follow the steps : 
+            - download the folder CS225_Matchmaking
+            - then make a build directory using the command 'mkdir build'
+            - move insdie the build directory using the command 'cd build'
+            - run the command 'cmake' followed by 'make test'
+            - now run './test/ to test all parts of the code 
 
 
 
