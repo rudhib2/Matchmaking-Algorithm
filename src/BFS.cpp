@@ -2,30 +2,28 @@
 #include "BFS.h"
 #include "Graph.h"
 #include "csv.h"
+// #include "CalcScore.h"
 
-void Traversal::store_values() {
+
+Traversal::Traversal() {
     pref = file_to_prefvect("../tests/CS225_matchmaking.csv"); 
-    attr = file_to_attribvect("../tests/CS225_matchmaking.csv"); 
+    attr = file_to_attribvect("../tests/CS225_matchmaking.csv");  
     id = file_to_ids("../tests/CS225_matchmaking.csv");
-    CalcPrefScore(pref, pref_score);
-    CalcAttribScore(attr, attr_score);
+    pref_score = CalcPrefScore(pref);
+    attr_score = CalcAttribScore(attr);
 }
 
 bool Traversal::PrelimCheck(int id1, int id2) {
-    // checking rel_type
-    if (pref[id1][0] != attr[id2][8]) {
-        return false;
-    }
     //checking age
-    if (pref[id1][2] != attr[id2][1]) {
+    if (pref[id1][1] != attr[id2][1]) {
         return false;
     }
     //checking gender
-    if (pref[id1][1] != attr[id2][0]) {
+    if (pref[id1][0] != attr[id2][0]) {
         return false;
     }
     //checking race_pref
-    if (pref[id1][3] != attr[id2][2]) {
+    if (pref[id1][2] != attr[id2][2]) {
         return false;
     }
     return true;
@@ -55,14 +53,15 @@ bool Traversal::isCompatible(int id1, int id2) {
 std::vector<std::vector<bool>> Traversal::populate(){ 
     // iterate through the pref_score vector and the attr_score vector
     Graph g(id.size()); 
-    store_values(); 
-    std::vector<std::vector<bool>> isCompat;
+    Traversal(); 
+    std::vector<std::vector<bool>> isCompat(544, std::vector<bool>(544, true));
     bool flag;  
 
-    for (size_t i = 0; i < pref_score.size(); i++) {
-        for (size_t j = 0; j < attr_score.size(); j++) {
+    for (size_t i = 0; i < pref_score.size() - 1; i++) {
+        for (size_t j = 0; j < attr_score.size() - 1; j++) {
             if(i == j) {
                 isCompat[i][j] = false; 
+                continue; 
             }
             flag = isCompatible(i,j);
 
@@ -85,7 +84,7 @@ std::vector<std::vector<bool>> Traversal::populate(){
     return isCompat; 
 }
 
-std::vector<std::vector<int>> Traversal::adjacency_matrix(){ 
+std::vector<std::vector<int>> Traversal::adjacency_matrix() { 
     // if there exists an edge between the two vertices then the attribute score will be held in that position in the matrix
     // otherwise there will be -1; 
     std::vector<std::vector<bool>> temp = populate(); 
