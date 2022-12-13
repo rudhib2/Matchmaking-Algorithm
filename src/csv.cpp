@@ -4,14 +4,13 @@
 #include <cstdlib>
 #include <map>
 #include <unordered_map>
+#include <string> 
 
 #include "csv.h"
 #include <algorithm>
 
 #include <fstream>
 #include <list>
-
-//edit the excel sheet to get rid of shar_pref and make relationship type col 9
 
 
 std::vector<std::vector<int>> file_to_prefvect(const std::string & filename){
@@ -21,26 +20,11 @@ std::vector<std::vector<int>> file_to_prefvect(const std::string & filename){
     // Your code here!
     std::vector<std::vector<int>> vect;
     std::fstream file(filename);
+    int counter = 0;
     std::string line;
     getline(file, line); 
     std::vector<std::string> to_split; 
     while (getline(file, line)) {
-
-        int counter = 0;
-        std:: cout <<"print" << std::endl;
-        std::istringstream ss(line);
-        std::vector<int> preferences;
-        while(ss) {
-            std:: cout << "print 2" << std::endl;
-            std::string s;
-            if (!getline(ss, s, ',')) {
-                break;
-            }
-            if (counter >= 9) {
-                preferences.push_back(stoi(s));
-            }
-            counter++;
-
         int counter = 0; 
         std::vector<int> result;
         std::stringstream s_stream(line); //create string stream from the string
@@ -53,7 +37,6 @@ std::vector<std::vector<int>> file_to_prefvect(const std::string & filename){
         }
         } 
         vect.push_back(result);  
-    }
     }
     return vect;
 }
@@ -106,6 +89,7 @@ std::vector<int> file_to_ids(const std::string & filename) {
     }
     return vect;
 }
+
 
 std::vector<int> CalcPrefScore(std::vector<std::vector<int>> pref){
     std::vector<int> pref_score; 
