@@ -47,25 +47,15 @@ TESTS for BFS:
     - **TALK ABOUT IMPLEMENTATION IN GREATER DETAIL**
     - **TESTING ~ EXPLAIN TEST CASES BRIEFLY & OUTCOMES**
     - **IF UNSUCCESSFUL ~ EXPLAIN INTENTIONS & REFLECTION**
-3. Kosaraju’s algorithm **NEEDS TO BE MODIFIED AS PER RECENT CHANGES AFTER CALL W SAVYA** was used to place everyone in a category of desirability (based on an individual attributes, which category) ~ lower desirability, average desirability, high desirability [we can rename these], as well as a category of standards (based on an individual’s preferences) ~ lower standards, average standards, high standards.
+
+
+3. Kosaraju’s algorithm was used to find the number of strongly connected components in our graph (represented by an adjacency matrix that is a 2D vector). We 'found' a strongly connected component by comparing Person A's preference score to every other person's attribute score and seeing if the preference score is greater than the other people's attribute score. For example, if Person A's preference score is greater than Person B's attribute score and vice versa, they become a strongly connected component (or if there is a path between multiple people), and therefore, we know that that pairing is incompatible. This test case is useful in seeing out of a group of people, how many groups of people will be incompatible with each other instead of compatible (which is what we are looking at for the other test cases). The higher the number of strongly connected components, the better because the max number of SCC's we can have is the max number of people. So if we have five people and the numComponents returned by the algorithm is 5, that means every person is a strongly connected to themselves and there are no incompatibiliities with other people. 
     - Implementation for attributes / desirability category ~
-        - For each person in the dataset, there is one big graph represented as an adjacency matrix with x and y axis being the id vector (all people in the dataset’s ids)
-        - Compare every person’s attribute score – use pre-written function to calculate
-        - If root person’s score is greater, set the value to 1 (this person is more desirable than the person we just visited)
-        - Perform kosaraju’s algorithm 
+        1. There is 
             - Dfs
-            - Make an empty stack and push
-            - Bool visited – vector of visited components
-            - Need to transpose graph for second dfs
-            - First config for dfs 1, second for dfs 2
-        - We have a count variable which we increment when ever we have 1 / visited
-        - Basically we want to know how many people in the set are you “more desirable” than
-        - We will then push this count back into a different vector such that the index of this vector corresponds to the indexes of the ids vector (in fact this could be a 2d vector id,score or maybe even a map ~ data structure will be discussed later)
-        - Then we sort by ascending order – the first 181 people are low category, the next 182 people are average category, the last 181 people are high category
-    - Implementation for preferences / standards category ~
-        - It is the same as described above, but instead of attribute ranks, we'll use preference ranks
+           
     - **TALK ABOUT IMPLEMENTATION IN GREATER DETAIL**
     - **TESTING ~ EXPLAIN TEST CASES BRIEFLY & OUTCOMES**
     - **IF UNSUCCESSFUL ~ EXPLAIN INTENTIONS & REFLECTION**
 
-By implementing these algorithms, we learned that the initial scope of the project could be broadened. We realized half way through that our initial two goals could be accomplished with just BFS and Djikstras, so we ideated and came up with new functionalities for the project using Kosaraju's algorithm. Reflecting on what didn't work **NEED TO FINISH WRITING BASED ON HOW TESTING GOES ~ IF SOMETHING DOESN'T FULLY FUNCTION PROPERLY, EXPLAIN HERE**
+By implementing these algorithms, we learned that the initial scope of the project could be broadened. We realized half way through that our initial two goals could be accomplished with just BFS and Djikstras, so we ideated and came up with new functionalities for the project using Kosaraju's algorithm. Reflecting on what didn't work, we ended up not completely passing the Djikstra test case due to an out of bounds error. We believe the source of this came from trying to access a node in the graph that was past the size of the graph itself, and for further iterations we would go back through the addEdge function in Graph.cpp and the populate function in BFS.cpp because that is where out error was originating from based on gdb. 
