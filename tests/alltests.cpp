@@ -1,7 +1,9 @@
 #include <catch2/catch_test_macros.hpp>
 
-#include "../src/Kosaraju.h"
 #include "../src/csv.h"
+#include "../src/Kosaraju.h"
+#include "../src/BFS.h"
+#include "../src/Graph.h"
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -165,6 +167,52 @@ TEST_CASE("check_attrib_score", "[weight = 1]") {
     }
 }
 
+std::vector<std::vector<int>> pref = file_to_prefvect("../tests/CS225_matchmaking.csv"); 
+std::vector<std::vector<int>> attr = file_to_attribvect("../tests/CS225_matchmaking.csv"); 
+std::vector<int> id = file_to_ids("../tests/CS225_matchmaking.csv");
+std::vector<int> pref_score = CalcPrefScore(pref);
+std::vector<int> attr_score = CalcAttribScore(attr);
+Traversal trav =  Traversal();
+
+TEST_CASE("BFS Test 1 ~ Compatible-basic", "[weight=1]") { 
+        REQUIRE(pref_score[4] == 180);
+        REQUIRE(attr_score[14] == 390);
+        REQUIRE(trav.isCompatible(4, 14) == false);
+}
+
+TEST_CASE("BFS Test 1 ~ Not Compatible-prelim fails", "[weight=1]") {
+    
+        REQUIRE(pref[6][1] == 22);  //1-gender
+        REQUIRE(pref[6][2] == 2);   //2-age
+        REQUIRE(pref[6][0] == 0);   //0-rel_type
+        REQUIRE(trav.PrelimCheck(6, 10) == false);
+}
+
+TEST_CASE("BFS Test 1 ~ Not Compatible-pass prelim fail threshold", "[weight=1]") {
+   
+    //A's pref:
+        REQUIRE(pref[1][1] == 24);  //1-gender
+        REQUIRE(pref[1][2] == 2);   //2-age
+        REQUIRE(pref[1][3] == 8);   //3-race
+        REQUIRE(pref[1][0] == 0);   //0-rel_type
+
+    //B's attribs:
+        REQUIRE(pref[34][0] == 0);  //0-gender
+        REQUIRE(pref[34][1] == 26);   //1-age
+        REQUIRE(pref[34][2] == 4);   //2-race
+        REQUIRE(pref[34][7] == 9);   //8-rel_type
+        REQUIRE(trav.PrelimCheck(1, 34) == false);
+
+        REQUIRE(pref_score[1] == 360);
+        REQUIRE(attr_score[34] == 370);
+        REQUIRE(trav.isCompatible(1, 34) == false);
+}
+
+TEST_CASE("BFS Test 1 ~ Not Compatible-same id", "[weight=1]") {
+
+        REQUIRE(trav.isCompatible(4, 4) == false);
+}
+
 
 TEST_CASE("check_Kosaraju_with_five_people", "[weight = 1]") {  
     int ans = Kosaraju(5);
@@ -176,6 +224,22 @@ TEST_CASE("check_Kosaraju_with_five_people", "[weight = 1]") {
     // person 4 
     // person 2, 3, and 5 
     REQUIRE(ans == 3); 
+}
+
+
+TEST_CASE("Djikstra Test 1 ~ Compatible", "[weight=1]") {
+    std::vector<int> vect;
+    Graph g = Graph(545); 
+    std::vector<std::vector<int>> adj_matrix = trav.adjacency_matrix();
+    vect = g.dijkstra(adj_matrix, 4); 
+    
+    REQUIRE(std::find(vect.begin(), vect.end(), 12) != vect.end());
+    REQUIRE(std::find(vect.begin(), vect.end(), 40) != vect.end());
+    REQUIRE(std::find(vect.begin(), vect.end(), 49) != vect.end());
+    REQUIRE(std::find(vect.begin(), vect.end(), 433) != vect.end());
+    REQUIRE(std::find(vect.begin(), vect.end(), 78) == vect.end());
+    REQUIRE(std::find(vect.begin(), vect.end(), 8) == vect.end());
+        
 }
 
 
