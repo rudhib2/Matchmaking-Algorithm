@@ -44,9 +44,10 @@ TESTS for BFS:
     - We now can perform a bubble sort and see which distances are the shortest and sort accordinly. 
     - Now we can return the top 3 people (3 people with the shortest distance) as the people the person is likely to be very compatible with. 
     - Additionally, just like we did in BFS, we added checks like the PrelimCheck so we can make our code faster and more efficient. 
-    - **TALK ABOUT IMPLEMENTATION IN GREATER DETAIL**
-    - **TESTING ~ EXPLAIN TEST CASES BRIEFLY & OUTCOMES**
-    - **IF UNSUCCESSFUL ~ EXPLAIN INTENTIONS & REFLECTION**
+
+Tests for Dijkstra:
+
+For the dijkstra test, I took a random id (id 4 for the test) and by hand computed which ids in the dataset it is compatible with. Then, we tested to make sure that all of those 4 ids were present in the vector returned by the djikstra function (when it ran with root 4). To make sure, it was only returning the correct ids, I also added a check to sure that two random ids were not being included in the vector being returned
 
 
 3. Kosaraju’s algorithm was used to find the number of strongly connected components in our graph (represented by an adjacency matrix that is a 2D vector). We 'found' a strongly connected component by comparing Person A's preference score to every other person's attribute score and seeing if the preference score is greater than the other people's attribute score. For example, if Person A's preference score is greater than Person B's attribute score and vice versa, they become a strongly connected component (or if there is a path between multiple people), and therefore, we know that that pairing is incompatible. This test case is useful in seeing out of a group of people, how many groups of people will be incompatible with each other instead of compatible (which is what we are looking at for the other test cases). The higher the number of strongly connected components, the better because the max number of SCC's we can have is the max number of people. So if we have five people and the numComponents returned by the algorithm is 5, that means every person is a strongly connected to themselves and there are no incompatibiliities with other people. 
