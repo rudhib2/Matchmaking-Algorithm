@@ -1,17 +1,13 @@
-// # include "Graph.h"
-# include "Graph.h"
+#include "Graph.h"
 #include "BFS.h"
-#include <list>
+#include <queue> 
 using namespace std;
 
-// Graph::Graph(int V) {
-//     this->V = V;
-//     adj.resize(V);
-// }
- 
-// void Graph::addEdge(int v, int w) {
-//     adj[v].push_back(w); // Add w to v’s list.
-// }
+Graph::Graph(int V) {
+    this->V = V;
+    adj.resize(V);
+}
+
  
 void Graph::addEdge(int v, int w) {
     adj[v].push_back(w); // Add w to v’s list.
@@ -19,48 +15,48 @@ void Graph::addEdge(int v, int w) {
 
 void Graph::BFS(int id1) { // // BFS through the graph
 // Mark all the vertices as not visited
-    for(size_t j = 0; j < visited.size(); j++) {
-        visited[j] = false; 
+    for(size_t j = 0; j < 544; j++) {
+        visited.push_back(false); 
     }
     // Create a queue for BFS
-    list<int> queue;
+    std::queue<int> queue;
     // Mark the current node as visited and enqueue it
     visited[id1] = true;
+    queue.push(id1);
     id1 = queue.front();
-    queue.push_back(id1);
     while(!queue.empty())
     {
-        queue.pop_front();
+        queue.pop();
  
         // Get all adjacent vertices of the dequeued
         // vertex s. If a adjacent has not been visited,
         // then mark it visited and enqueue it
-        for (size_t adjecent: adj[id1])
+        for (size_t adjacent = 0; adjacent < 544; adjacent++)
         {
-            if (!visited[adjecent])
+            if (!visited[adjacent])
             {
-                visited[adjecent] = true;
-                queue.push_back(adjecent);
+                visited[adjacent] = true;
+                queue.push(adjacent);
             }
         }
     }
 }
 
-    int Graph::minDistance(vector<int> dist, vector<bool> sptSet) {
-        Traversal t; 
-        Graph g(t.id.size());
-        // Initialize min value
-        int min = 0; 
-        int min_index = 0;
- 
-        for (size_t v = 0; v < t.id.size(); v++) {
-            if (sptSet[v] == false && dist[v] <= min){
-                min = dist.at(V);
-                min_index = v; 
-            }
+int Graph::minDistance(vector<int> dist, vector<bool> sptSet) {
+    Traversal t; 
+    Graph g(t.id.size());
+    // Initialize min value
+    int min = 0; 
+    int min_index = 0;
+
+    for (size_t v = 0; v < t.id.size(); v++) {
+        if (sptSet[v] == false && dist[v] <= min){
+            min = dist.at(V);
+            min_index = v; 
         }
-        return min_index;
     }
+    return min_index;
+}
 
 
 std::vector<int> Graph::dijkstra(std::vector<std::vector<int>> adj_matrix, int root) {
@@ -68,8 +64,7 @@ std::vector<int> Graph::dijkstra(std::vector<std::vector<int>> adj_matrix, int r
     Traversal t; 
     dist.resize(t.id.size());
     // The output array.  
-    // dist[i] will hold the shortest distance from src to i
- 
+    // dist[i] will hold the shortest distance from src to i 
     std::vector<bool> sptSet; 
     // sptSet[i] will be true if vertex i is
     // included in shortest
