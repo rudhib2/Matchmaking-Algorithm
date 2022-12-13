@@ -14,14 +14,23 @@ In order to meet these goals, we utilized BFS traversal, Djikstra's algorithm, a
 
 1. BFS was used to compute the compatability between two people. This was done by comparing an individual's preferences to other individual's attributes.
     - A graph is created for each person in the form of an adjacency matrix. Vertices are all people in the dataset.
-    - For every person, we create a new graph, where the root node's (the person whose compatibility we need to check) value comes from our preferences vector and the value of all the other nodes comes from the attributes vector. The reasoning for doing this was simple, we want to keep in mind the preferences of the person for whom we are finding compatible people and compare it to other epople's attributes.
+    - For every person, we create a new graph, where the root node's (the person whose compatibility we need to check) value comes from our preferences vector and the value of all the other nodes comes from the attributes vector. The reasoning for doing this was simple, we want to keep in mind the preferences of the person for whom we are finding compatible people and compare it to other people's attributes.
     - The values of these nodes is an integer which represents what we call the "holistic score". This score is a part of each person's identity.
         - A person's holistic score is the sum of al their attribute (given by the ints in the corresponding coluns of the dataset) multiplied by 10
         - This only includes the columns corresponding to attractiveness, sincerity, funniness, intelligence, & ambition. These are all represented by an int between 0 and 10 which corresponds to a rating. 
         - There will be a 1d vector with each person's holistic score in addition to the other two vectors (preferences and attributes)
-        - preferenes are the weight in the graph.
-        - BFS is performed on the graph and the absolute values of scores are compared. If someone's score is greater than the preferred score, they pass
-        - We perform BFS for all grapohs where only one node changes, ie, the person whose compatibility we are checking with all other people. The node of this person is what comes from the preferences vector. All other notes come from the attributes vector.
+    - We have an additional function called PrelimCheck that the data needs to pass before going performing a BFS on it. 
+        - In the PrelimCheck function, we are checking 4 variables: age, gender, relationship type ,and race preference
+        - To pass this, the value of all of these 4 variables should be exactly the same for both the people we are comparing because unlike the other variables, the age variable can take any value and gender (takes value 0 or 1), rel_type (takes value 1-6), race (takes value 1-6) also take values that aren't necessarily between 1-10.
+        - A big reason for adding the PrelimCheck function was to improve the efficiency of our code. Earlier, with just the threshold, there was a large number of people that were included in the graph and we had to perform a BFS on this huge graph. Furthermore, there would be a new graph for each person (where the root takes value from the prefrences vector i.e the enitire graph changes each time). We would have done this for all 544 people in our dataset. But after adding the PrelimCheck function, we automatically reduce the number of person each person is compatible with.
+    - BFS is performed on the graph and the absolute values of scores are compared. If someone's score is within a range of 50 more or less compared to the preferred score, they pass else they fail
+    - We perform BFS for all graphs where only one node changes, ie, the person whose compatibility we are checking with all other people. 
+
+TESTS for BFS:
+    - test 1: compatible pair
+    - test 2: not compatible (PrelimCheck fails)
+    - test 3: not compatible (PrelimCheck fails - but threshold passes: overall result should still be not compatible)
+    - test 4: not compatible (same id is passed for both: expected result should be not compatile as the same person cannot be compatible to themselves)
     - **TALK ABOUT IMPLEMENTATION IN GREATER DETAIL**
     - **TESTING ~ EXPLAIN TEST CASES BRIEFLY & OUTCOMES**
     - **IF UNSUCCESSFUL ~ EXPLAIN INTENTIONS & REFLECTION**
