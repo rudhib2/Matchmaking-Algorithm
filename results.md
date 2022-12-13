@@ -31,9 +31,16 @@ TESTS for BFS:
     - test 2: not compatible (PrelimCheck fails)
     - test 3: not compatible (PrelimCheck fails - but threshold passes: overall result should still be not compatible)
     - test 4: not compatible (same id is passed for both: expected result should be not compatile as the same person cannot be compatible to themselves)
+    
+    
+    
     - **TALK ABOUT IMPLEMENTATION IN GREATER DETAIL**
     - **TESTING ~ EXPLAIN TEST CASES BRIEFLY & OUTCOMES**
     - **IF UNSUCCESSFUL ~ EXPLAIN INTENTIONS & REFLECTION**
+    
+    
+    
+    
 2. Djikstra's algorithm was used to find shortest paths between nodes in order to find who an individual is most compatable with. BFS tells weather people are compatible or not, but the degree of compatability is computed using this algorithm
     - There is a graph per person but now we'll make the graphs weighted using attributes
     - Using the algorithm, we'll find the shortest path between people and return in order from shortest to longest path the path that is shortest
