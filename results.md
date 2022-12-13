@@ -14,6 +14,7 @@ In order to meet these goals, we utilized BFS traversal, Djikstra's algorithm, a
 
 1. BFS was used to compute the compatability between two people. This was done by comparing an individual's preferences to other individual's attributes.
     - A graph is created for each person in the form of an adjacency matrix. Vertices are all people in the dataset.
+    - For every person, we create a new graph, where the root node's (the person whose compatibility we need to check) value comes from our preferences vector and the value of all the other nodes comes from the attributes vector. The reasoning for doing this was simple, we want to keep in mind the preferences of the person for whom we are finding compatible people and compare it to other epople's attributes.
     - The values of these nodes is an integer which represents what we call the "holistic score". This score is a part of each person's identity.
         - A person's holistic score is the sum of al their attribute (given by the ints in the corresponding coluns of the dataset) multiplied by 10
         - This only includes the columns corresponding to attractiveness, sincerity, funniness, intelligence, & ambition. These are all represented by an int between 0 and 10 which corresponds to a rating. 
