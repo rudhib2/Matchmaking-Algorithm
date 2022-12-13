@@ -98,5 +98,3 @@ int Kosaraju(int n) {
 }
 
 
-
- 
