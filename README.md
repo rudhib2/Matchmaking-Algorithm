@@ -40,5 +40,12 @@
             
             5. now run './test' to test all parts of the code 
 
+                                                                       **TEST CASES**
+  - We have written multiple test cases. A few of them are listed :
+           - to check if the vectors have been populated properly after the data cleaning and parsing has been performed 
+           - to check if the preference and attribute scores have been calculated properly
+           - to check if people who are labelled as compatible are actually compatible based on their preference and attribute scores
+           - to check if the algorithm is returning the correct set of people a person could possibly be very compatible with 
+           - to check how many people in a group are not compatible with each other 
 
 
