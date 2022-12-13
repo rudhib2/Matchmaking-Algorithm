@@ -22,6 +22,9 @@
 
 **Data Files** :
 - all the raw data is present in the 'tests' folder  in the file CS225_matchmaking.csv 
+
+**Written Report**
+- the written report is present in the 'result.d' file
  
  
                                                                          **RUNNING**
