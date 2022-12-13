@@ -23,10 +23,15 @@
  
                                                                          **RUNNING**
  **To be able to run the tests, follow the steps :**
+ 
             1. download the folder CS225_Matchmaking or clone repository to open in VSCode in Docker container
+            
             2. make a build directory using the command 'mkdir build'
+            
             3. move inside the build directory using the command 'cd build'
+            
             4. run the command 'cmake ..' followed by 'make test'
+            
             5. now run './test' to test all parts of the code 
 
 
