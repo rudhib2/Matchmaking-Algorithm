@@ -13,8 +13,8 @@
       
       **Kosaraju.h + Kosaraju.cpp** - Kosaraju.cpp contains the Kosaraju's algorithm which is implemented by performing a DFS on an adjacency list and reverse adjacency list that's created by traversing through the dataset and also contains helper functions requred to perform the algorithm. Kosaraju.h is a header file to Kosaraju.cpp.
       
-**Test Folder Files : **
- contains multiple files used to run and test all aspects of the project : 
+**Test Folder Files :**
+ contains multiple files used to run and test all aspects of the project. The tests are in the file 'alltests.cpp'
 - Data parsing and cleaning
 - Kosaraju's Algorithm 
 - BFS Algorithm 
