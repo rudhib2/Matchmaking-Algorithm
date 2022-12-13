@@ -22,7 +22,7 @@ In order to meet these goals, we utilized BFS traversal, Djikstra's algorithm, a
     - We have an additional function called PrelimCheck that the data needs to pass before going performing a BFS on it. 
         - In the PrelimCheck function, we are checking 4 variables: age, gender, relationship type ,and race preference
         - To pass this, the value of all of these 4 variables should be exactly the same for both the people we are comparing because unlike the other variables, the age variable can take any value and gender (takes value 0 or 1), rel_type (takes value 1-6), race (takes value 1-6) also take values that aren't necessarily between 1-10.
-        - A big reason for adding the PrelimCheck function was to improve the efficiency of our code. Earlier, with just the threshold, there was a large number of people that were included in the graph and we had to perform a BFS on this huge graph. Furthermore, there would be a new graph for each person (where the root takes value from the prefrences vector i.e the enitire graph changes each time). We would have done this for all 544 people in our dataset. But after adding the PrelimCheck function, we automatically reduce the number of person each person is compatible with.
+        - A big reason for adding the PrelimCheck function was to improve the efficiency of our code. Earlier, with just the threshold, there was a large number of people that were included in the graph and we had to perform a BFS on this huge graph. Furthermore, there would be a new graph for each person (where the root takes value from the prefrences vector i.e the enitire graph changes each time). We would have done this for all 544 people in our dataset. But after adding the PrelimCheck function, we automatically reduce the number of people each person is compatible with.
     - BFS is performed on the graph and the absolute values of scores are compared. If someone's score is within a range of 50 more or less compared to the preferred score, they pass else they fail
     - We perform BFS for all graphs where only one node changes, ie, the person whose compatibility we are checking with all other people. 
 
@@ -33,19 +33,17 @@ TESTS for BFS:
    - test 3: not compatible (PrelimCheck fails - but threshold passes: overall result should still be not compatible)
    - test 4: not compatible (same id is passed for both: expected result should be not compatile as the same person cannot be compatible to themselves)
     
-    
-    
-    - **TALK ABOUT IMPLEMENTATION IN GREATER DETAIL**
-    - **TESTING ~ EXPLAIN TEST CASES BRIEFLY & OUTCOMES**
-    - **IF UNSUCCESSFUL ~ EXPLAIN INTENTIONS & REFLECTION**
-    
+ Testing was successful and the algorithm passes the written test cases! 
     
     
     
 2. Djikstra's algorithm was used to find shortest paths between nodes in order to find who an individual is most compatable with. BFS tells weather people are compatible or not, but the degree of compatability is computed using this algorithm
-    - There is a graph per person but now we'll make the graphs weighted using attributes
-    - Using the algorithm, we'll find the shortest path between people and return in order from shortest to longest path the path that is shortest
-    - The path that is shortest will reach the most compatible person and the longest will reach the least compatable among the people that are compatable.
+    - There is a graph per person but now we'll make the graphs weighted using one of the attributes
+    - Using the algorithm, we'll be able to find the shortest path from the source node to a particular vertex. 
+    - The algorithm will return a the list of distances of each vertex from the source node
+    - We now can perform a bubble sort and see which distances are the shortest and sort accordinly. 
+    - Now we can return the top 3 people (3 people with the shortest distance) as the people the person is likely to be very compatible with. 
+    - Additionally, just like we did in BFS, we added checks like the PrelimCheck so we can make our code faster and more efficient. 
     - **TALK ABOUT IMPLEMENTATION IN GREATER DETAIL**
     - **TESTING ~ EXPLAIN TEST CASES BRIEFLY & OUTCOMES**
     - **IF UNSUCCESSFUL ~ EXPLAIN INTENTIONS & REFLECTION**
