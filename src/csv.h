@@ -1,8 +1,3 @@
-/**
- * @file schedule.h
- * Exam scheduling using graph coloring
- */
-
 #pragma once
 
 #include <string>
@@ -13,10 +8,9 @@
 #include <sstream>
 #include <set>
 
-typedef std::vector<std::vector<std::string> > V2D; 
 
 
-
+std::string splitstr(std::string str, std::string deli = " "); 
 std::vector<std::vector<int>> file_to_prefvect(const std::string & filename);
 std::vector<std::vector<int>> file_to_attribvect(const std::string & filename);
 std::vector<int> file_to_ids(const std::string & filename);
