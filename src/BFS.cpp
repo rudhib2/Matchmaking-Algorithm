@@ -178,7 +178,7 @@ std::vector<std::vector<bool>> Traversal::populate(){
     for (size_t i = 0; i < pref_score.size(); i++) {
         for (size_t j = 0; j < attr_score.size(); j++) {
             if(i == j) {
-                continue; 
+                isCompat[i][j] = false; 
             }
             flag = isCompatible(i,j);
 
